@@ -1,5 +1,5 @@
-view plainprint?
-public class HelloWorldConsole  
+
+public class HelloWorld
 {  
     public static void main(String args[])  
     {  
