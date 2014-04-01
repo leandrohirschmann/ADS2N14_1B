@@ -10,14 +10,27 @@ public class Conta {
 	int numConta;
 	int numVerificacao;
 	
+	//cria conta comun
+	
+public void contaComun(){
+	System.out.print("Numero da conta: ");
+	Scanner teclado = new Scanner(System.in);
+	numConta = Integer.parseInt(teclado.next());
+	System.out.print("Numero verificação: ");
+	Scanner tecladoNumVerificacao = new Scanner(System.in);
+	numVerificacao = Integer.parseInt(tecladoNumVerificacao.next());
+	
+}
+	
 	
 	//Deposito em conta
 	public void depositar(){
+		double deposito;
 		System.out.print("Valor do deposito: ");
 		double tecla;
 		Scanner teclado = new Scanner(System.in);
-		saldo = Double.parseDouble(teclado.next()) ;
-		saldo = getSaldo();
+		deposito = Double.parseDouble(teclado.next()) ;
+		saldo = deposito + getSaldo();
 		//System.out.println("Saldo..."+saldo);
 	}
 	
@@ -25,19 +38,30 @@ public class Conta {
 	
 	//Sacar se existir saldo
 	public void sacar(){
-		System.out.println("Saldo..."+getSaldo());
+		//System.out.println("Saldo..."+getSaldo());
+		double saque = 0;
 		
 		if (saldo > 0) {
-			System.out.print("Valor do Saque: ");
+			System.out.println("Valor do Saque: ");
 			Scanner teclado = new Scanner(System.in);
-			saldo = saldo - Double.parseDouble(teclado.next()); 
-		}
-			else  {
-				//Exception();
+			
+			
+			//Variavel para comparação no if
+			
+			saque =  Double.parseDouble(teclado.next());
+			
+			    if(saque > saldo){
 				
-				System.out.println("Saldo Insuficiente");
+				   System.out.println("Saldo insuficiente para esse valor de saque !! ");
+			
+			    }
+			  saldo = saldo - saque;
+			  
 			}
+			 
 		}
+			
+		
 	
 	//Extrato 
 	public void extrato(){
